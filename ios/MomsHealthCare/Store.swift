@@ -58,6 +58,18 @@ final class Store: ObservableObject {
         profiles = Self.load("profiles") ?? []
         lmp = UserDefaults.standard.string(forKey: "lmp")
         appearance = Appearance(rawValue: UserDefaults.standard.string(forKey: "appearance") ?? "") ?? .dark
+        #if DEBUG
+        // Screenshot mode: launch with "-demo YES" for sample data (kept in memory only).
+        if UserDefaults.standard.bool(forKey: "demo") && requests.isEmpty {
+            let today = Clinic.todayISO()
+            requests = [
+                Request(id: 2, name: "Priya Das", phone: "9876543210", service: "Ultrasound (USG)", date: Clinic.addDays(today, 3), slot: "morning"),
+                Request(id: 1, name: "Priya Das", phone: "9876543210", service: "General OPD", date: Clinic.addDays(today, -14), slot: "evening"),
+            ]
+            profiles = [Profile(name: "Priya Das", phone: "9876543210"), Profile(name: "Rina Das", phone: "9123456780")]
+            lmp = Clinic.addDays(today, -96)
+        }
+        #endif
     }
 
     private static func load<T: Decodable>(_ key: String) -> T? {

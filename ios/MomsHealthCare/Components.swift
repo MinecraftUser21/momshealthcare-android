@@ -39,6 +39,14 @@ final class Router: ObservableObject {
     @Published var service: Clinic.Service?
     @Published var toast: String?
 
+    init() {
+        #if DEBUG
+        // Screenshot mode: "-tab clinic" opens a tab, "-book YES" opens the booking form.
+        if let t = UserDefaults.standard.string(forKey: "tab"), let tab = Tab(rawValue: t) { self.tab = tab }
+        if UserDefaults.standard.bool(forKey: "book") { booking = Booking() }
+        #endif
+    }
+
     func book(_ service: String? = nil, notes: String? = nil, date: String? = nil) {
         booking = Booking(service: service, notes: notes, date: date)
     }
