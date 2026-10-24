@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Type: Inter with tight tracking, as on the website -->
+    <style name="TextAppearance.Moms" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/inter_regular</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">-0.011</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Display">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">42sp</item>
+        <item name="android:letterSpacing">-0.035</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Title">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:letterSpacing">-0.028</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Headline">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Strong">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">-0.015</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Body" />
+
+    <style name="TextAppearance.Moms.Lead">
+        <item name="android:textColor">@color/text_2</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Moms.BodySmall">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_2</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Eyebrow">
+        <item name="android:fontFamily">@font/inter_semibold</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_2</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Label">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_2</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Caption">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/text_3</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="TextAppearance.Moms.Button">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <!-- Views -->
+    <style name="Widget.Moms.TextView" parent="android:Widget.TextView">
+        <item name="android:textAppearance">@style/TextAppearance.Moms</item>
+    </style>
+
+    <style name="ShapeAppearance.Moms.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearance.Moms.Card" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/radius</item>
+    </style>
+
+    <style name="Widget.Moms.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/btn_primary_bg</item>
+        <item name="android:textColor">@color/btn_primary_text</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Button</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Moms.Pill</item>
+        <item name="android:minHeight">@dimen/btn_height</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">24dp</item>
+        <item name="rippleColor">@color/ripple</item>
+        <item name="elevation">0dp</item>
+        <item name="android:stateListAnimator">@animator/press_scale</item>
+    </style>
+
+    <style name="Widget.Moms.Button.Secondary">
+        <item name="backgroundTint">@color/btn_secondary_bg</item>
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="Widget.Moms.Button.Small">
+        <item name="android:minHeight">36dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.Moms.DialogButton" parent="Widget.Material3.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Button</item>
+        <item name="rippleColor">@color/ripple</item>
+    </style>
+
+    <style name="Widget.Moms.DialogTitle" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Headline</item>
+    </style>
+
+    <style name="Widget.Moms.DialogBody" parent="MaterialAlertDialog.Material3.Body.Text">
+        <item name="android:textAppearance">@style/TextAppearance.Moms.BodySmall</item>
+    </style>
+
+    <!-- Round icon button (call, back, row arrows) -->
+    <style name="Widget.Moms.IconButton" parent="">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/circle_button</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:stateListAnimator">@animator/press_scale</item>
+        <item name="tint">@color/text</item>
+    </style>
+
+    <!-- Text fields: label above, filled, rounded (website .field) -->
+    <style name="Widget.Moms.Field" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/field_bg</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms</item>
+        <item name="android:textColorHint">@color/text_3</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+        <item name="android:textColorHighlight">@color/selection</item>
+    </style>
+
+    <style name="Moms" />
+
+    <style name="Moms.FieldLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Label</item>
+    </style>
+
+    <style name="Moms.FieldError">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Caption</item>
+        <item name="android:textColor">@color/closed</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- Selectable pill (service, time) -->
+    <style name="Moms.Choice">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">42dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">9dp</item>
+        <item name="android:paddingBottom">9dp</item>
+        <item name="android:background">@drawable/choice_bg</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Button</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/choice_text</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:stateListAnimator">@animator/press_scale</item>
+    </style>
+
+    <!-- Section scaffolding -->
+    <style name="Moms.Eyebrow">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Eyebrow</item>
+    </style>
+
+    <style name="Moms.SectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Title</item>
+        <item name="android:lineSpacingMultiplier">0.98</item>
+    </style>
+
+    <!-- Pill toast, like the website's -->
+    <style name="Moms.Toast">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|center_horizontal</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:background">@drawable/toast_bg</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Button</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:accessibilityLiveRegion">polite</item>
+    </style>
+
+    <style name="Moms.Card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/card_bg</item>
+        <item name="android:padding">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+</resources>

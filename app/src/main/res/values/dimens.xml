@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="gutter">20dp</dimen>
+    <dimen name="section_gap">88dp</dimen>
+    <dimen name="radius">24dp</dimen>
+    <dimen name="field_radius">14dp</dimen>
+    <dimen name="bar_height">56dp</dimen>
+    <dimen name="btn_height">50dp</dimen>
+</resources>

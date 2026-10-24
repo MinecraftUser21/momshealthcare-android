@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Moms" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Black and white only: no dynamic colour, no tints. -->
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorOnPrimary">@color/on_accent</item>
+        <item name="colorPrimaryContainer">@color/field</item>
+        <item name="colorOnPrimaryContainer">@color/text</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/on_accent</item>
+        <item name="colorSecondaryContainer">@color/field</item>
+        <item name="colorOnSecondaryContainer">@color/text</item>
+        <item name="colorTertiary">@color/accent</item>
+        <item name="colorOnTertiary">@color/on_accent</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="colorOnBackground">@color/text</item>
+        <item name="colorSurface">@color/bg</item>
+        <item name="colorOnSurface">@color/text</item>
+        <item name="colorSurfaceVariant">@color/field</item>
+        <item name="colorOnSurfaceVariant">@color/text_2</item>
+        <item name="colorSurfaceContainerLowest">@color/bg</item>
+        <item name="colorSurfaceContainerLow">@color/surface</item>
+        <item name="colorSurfaceContainer">@color/surface</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_2</item>
+        <item name="colorSurfaceContainerHighest">@color/field</item>
+        <item name="colorSurfaceBright">@color/surface_2</item>
+        <item name="colorSurfaceDim">@color/bg</item>
+        <item name="colorSurfaceInverse">@color/text</item>
+        <item name="colorOnSurfaceInverse">@color/bg</item>
+        <item name="colorOutline">@color/text_3</item>
+        <item name="colorOutlineVariant">@color/line</item>
+        <item name="colorError">@color/closed</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="colorControlActivated">@color/accent</item>
+        <item name="colorControlNormal">@color/text_2</item>
+        <item name="colorControlHighlight">@color/line</item>
+
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+
+        <!-- Inter everywhere, like the website -->
+        <item name="android:textViewStyle">@style/Widget.Moms.TextView</item>
+        <item name="editTextStyle">@style/Widget.Moms.Field</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.Moms.Title</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.Moms.Title</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.Moms.Headline</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.Moms.Headline</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.Moms.Headline</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.Moms.Strong</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.Moms.Label</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.Moms.Body</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.Moms.BodySmall</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.Moms.Caption</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.Moms.Button</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.Moms.Label</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.Moms.Caption</item>
+
+        <item name="materialButtonStyle">@style/Widget.Moms.Button</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Moms.Dialog</item>
+        <item name="materialCalendarTheme">@style/ThemeOverlay.Moms.Calendar</item>
+    </style>
+
+    <style name="Theme.Moms.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/splash_bg</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_mark</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Theme.Moms</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <style name="ThemeOverlay.Moms.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorSurface">@color/surface_2</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_2</item>
+        <item name="shapeAppearanceCornerExtraLarge">@style/ShapeAppearance.Moms.Card</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.Moms.DialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.Moms.DialogButton</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.Moms.DialogButton</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Widget.Moms.DialogTitle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/Widget.Moms.DialogBody</item>
+    </style>
+
+    <style name="ThemeOverlay.Moms.Calendar" parent="ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorSurface">@color/surface_2</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_2</item>
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorOnPrimary">@color/on_accent</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.Moms.DialogButton</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.Moms.DialogButton</item>
+        <item name="shapeAppearanceCornerExtraLarge">@style/ShapeAppearance.Moms.Card</item>
+    </style>
+</resources>

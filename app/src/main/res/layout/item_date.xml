@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="64dp"
+    android:layout_height="80dp"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/date_bg"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:stateListAnimator="@animator/press_scale">
+
+    <TextView
+        android:id="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:duplicateParentState="true"
+        android:fontFamily="@font/inter_medium"
+        android:maxLines="1"
+        android:textColor="@color/choice_text_soft"
+        android:textSize="12sp"
+        tools:text="Sat" />
+
+    <TextView
+        android:id="@+id/middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="1dp"
+        android:duplicateParentState="true"
+        android:fontFamily="@font/inter_semibold"
+        android:letterSpacing="-0.02"
+        android:textColor="@color/choice_text"
+        android:textSize="22sp"
+        tools:text="25" />
+
+    <TextView
+        android:id="@+id/bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:duplicateParentState="true"
+        android:maxLines="1"
+        android:textColor="@color/choice_text_soft"
+        android:textSize="12sp"
+        tools:text="Oct" />
+</LinearLayout>

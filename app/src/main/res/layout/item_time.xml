@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="68dp"
+    android:layout_weight="1"
+    android:background="@drawable/date_bg"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="4dp"
+    android:stateListAnimator="@animator/press_scale">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:duplicateParentState="true"
+        android:fontFamily="@font/inter_medium"
+        android:maxLines="1"
+        android:textColor="@color/choice_text"
+        android:textSize="15sp"
+        tools:text="Morning" />
+
+    <TextView
+        android:id="@+id/range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:duplicateParentState="true"
+        android:maxLines="1"
+        android:textColor="@color/choice_text_soft"
+        android:textSize="12sp"
+        tools:text="8 AM – 12 PM" />
+</LinearLayout>

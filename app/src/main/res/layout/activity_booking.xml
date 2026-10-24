@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- ============ FORM ============ -->
+            <LinearLayout
+                android:id="@+id/form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/gutter"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:id="@+id/eyebrow"
+                    style="@style/Moms.Eyebrow"
+                    android:text="@string/book_eyebrow" />
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/Moms.SectionTitle"
+                    android:text="@string/book_title"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/lead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingMultiplier="1.08"
+                    android:text="@string/book_lead"
+                    android:textAppearance="@style/TextAppearance.Moms.Lead" />
+
+                <TextView
+                    android:id="@+id/preferCall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-10dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/row_bg"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="8dp"
+                    android:textAppearance="@style/TextAppearance.Moms.BodySmall"
+                    tools:text="Prefer to talk? Call 084206 98958 ›" />
+
+                <LinearLayout
+                    android:id="@+id/card"
+                    style="@style/Moms.Card"
+                    android:layout_marginTop="24dp"
+                    android:padding="20dp">
+
+                    <!-- Name -->
+                    <TextView
+                        style="@style/Moms.FieldLabel"
+                        android:labelFor="@id/nameInput"
+                        android:text="@string/f_name" />
+
+                    <EditText
+                        android:id="@+id/nameInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="name"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLength="60"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:id="@+id/nameError"
+                        style="@style/Moms.FieldError" />
+
+                    <!-- Phone -->
+                    <TextView
+                        style="@style/Moms.FieldLabel"
+                        android:layout_marginTop="20dp"
+                        android:labelFor="@id/phoneInput"
+                        android:text="@string/f_phone" />
+
+                    <LinearLayout
+                        android:id="@+id/phoneBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:background="@drawable/field_bg"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="12dp"
+                            android:text="@string/country_code"
+                            android:textColor="@color/text_2"
+                            android:textSize="17sp" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="22dp"
+                            android:background="@color/line" />
+
+                        <EditText
+                            android:id="@+id/phoneInput"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:autofillHints="phoneNational"
+                            android:background="@null"
+                            android:imeOptions="actionDone"
+                            android:inputType="phone"
+                            android:maxLength="16"
+                            android:maxLines="1"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="16dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/phoneError"
+                        style="@style/Moms.FieldError" />
+
+                    <!-- Service -->
+                    <TextView
+                        android:id="@+id/serviceLabel"
+                        style="@style/Moms.FieldLabel"
+                        android:layout_marginTop="22dp"
+                        android:text="@string/f_service" />
+
+                    <com.momshealthcare.app.FlowLayout
+                        android:id="@+id/serviceGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/serviceError"
+                        style="@style/Moms.FieldError" />
+
+                    <!-- Date -->
+                    <TextView
+                        android:id="@+id/dateLabel"
+                        style="@style/Moms.FieldLabel"
+                        android:layout_marginTop="22dp"
+                        android:text="@string/f_date" />
+
+                    <HorizontalScrollView
+                        android:id="@+id/dateScroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="-20dp"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        android:paddingHorizontal="20dp"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/dateRow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal" />
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:id="@+id/dateChosen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textAppearance="@style/TextAppearance.Moms.BodySmall"
+                        android:visibility="gone"
+                        tools:text="Saturday, 25 October"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/dateError"
+                        style="@style/Moms.FieldError" />
+
+                    <!-- Time -->
+                    <TextView
+                        android:id="@+id/timeLabel"
+                        style="@style/Moms.FieldLabel"
+                        android:layout_marginTop="22dp"
+                        android:text="@string/f_time" />
+
+                    <LinearLayout
+                        android:id="@+id/timeGroup"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <include
+                            android:id="@+id/timeMorning"
+                            layout="@layout/item_time" />
+
+                        <Space
+                            android:layout_width="8dp"
+                            android:layout_height="1dp" />
+
+                        <include
+                            android:id="@+id/timeAfternoon"
+                            layout="@layout/item_time" />
+
+                        <Space
+                            android:layout_width="8dp"
+                            android:layout_height="1dp" />
+
+                        <include
+                            android:id="@+id/timeEvening"
+                            layout="@layout/item_time" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/timeError"
+                        style="@style/Moms.FieldError" />
+
+                    <!-- Notes -->
+                    <TextView
+                        android:id="@+id/notesLabel"
+                        style="@style/Moms.FieldLabel"
+                        android:layout_marginTop="22dp"
+                        android:labelFor="@id/notesInput"
+                        tools:text="Notes (optional)" />
+
+                    <EditText
+                        android:id="@+id/notesInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:hint="@string/f_notes_hint"
+                        android:importantForAutofill="no"
+                        android:inputType="textMultiLine|textCapSentences"
+                        android:maxLength="500"
+                        android:minLines="3"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/submit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:minHeight="52dp"
+                        android:text="@string/request_appointment" />
+
+                    <TextView
+                        android:id="@+id/emergency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:gravity="center"
+                        android:textAppearance="@style/TextAppearance.Moms.Caption"
+                        tools:text="@string/emergency" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ============ SENT ============ -->
+            <LinearLayout
+                android:id="@+id/success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/gutter"
+                android:paddingTop="48dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/check"
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    android:id="@+id/sentTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center"
+                    android:text="@string/sent_title"
+                    android:textAppearance="@style/TextAppearance.Moms.Title"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/sentBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.08"
+                    android:textAppearance="@style/TextAppearance.Moms.Lead"
+                    tools:text="The clinic will call you on 98765 43210 to confirm a time." />
+
+                <LinearLayout
+                    android:id="@+id/summary"
+                    style="@style/Moms.Card"
+                    android:layout_marginTop="32dp"
+                    android:paddingVertical="10dp"
+                    android:paddingHorizontal="20dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/done"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:text="@string/done" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/sentCall"
+                    style="@style/Widget.Moms.Button.Secondary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/call_clinic" />
+            </LinearLayout>
+        </FrameLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ============ TOP BAR ============ -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/bar_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp">
+
+            <ImageButton
+                android:id="@+id/back"
+                style="@style/Widget.Moms.IconButton"
+                android:background="@drawable/row_bg"
+                android:contentDescription="@string/cd_back"
+                android:padding="9dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_arrow_left" />
+
+            <TextView
+                android:id="@+id/barTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:alpha="0"
+                android:fontFamily="@font/inter_semibold"
+                android:letterSpacing="-0.015"
+                android:text="@string/book_a_visit"
+                android:textSize="17sp" />
+
+            <ImageButton
+                android:id="@+id/barCall"
+                style="@style/Widget.Moms.IconButton"
+                android:contentDescription="@string/cd_call"
+                android:padding="11dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_phone" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/topBarLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0"
+            android:background="@color/line_soft" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/toast"
+        style="@style/Moms.Toast" />
+</FrameLayout>

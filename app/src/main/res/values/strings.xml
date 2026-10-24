@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mom’s Health Care</string>
+    <string name="brand">Mom’s Health Care</string>
+
+    <!-- Hero -->
+    <string name="hero_eyebrow">Diagnostic centre &amp; clinic · Thakurpukur</string>
+    <string name="hero_title">Precision diagnostics,</string>
+    <string name="hero_title_soft">close to home.</string>
+    <string name="hero_sub">Ultrasound, ECHO, gynecology, cardiology and a daily OPD, all under one roof.</string>
+    <string name="book_appointment">Book an appointment</string>
+    <string name="call_link">Call 084206 98958 ›</string>
+    <string name="rating">5.0 on Google</string>
+    <string name="area">East Barisha, Kolkata</string>
+
+    <!-- Status -->
+    <string name="status_open">Open now · until 9 PM</string>
+    <string name="status_closed_morning">Closed · opens 8 AM</string>
+    <string name="status_closed_night">Closed · opens 8 AM tomorrow</string>
+
+    <!-- Nav -->
+    <string name="book">Book</string>
+    <string name="call">Call</string>
+    <string name="book_a_visit">Book a visit</string>
+    <string name="cd_call">Call the clinic</string>
+    <string name="cd_back">Back</string>
+
+    <!-- Services -->
+    <string name="services_eyebrow">Services</string>
+    <string name="services_title">Everything you need, under one roof.</string>
+    <string name="svc_usg_name">Ultrasound</string>
+    <string name="svc_usg_tag">USG</string>
+    <string name="svc_usg_desc">See how your baby is growing, or get a clear look at your abdomen and pelvis. We’ll explain what the scan shows before you leave.</string>
+    <string name="svc_echo_name">Echocardiogram</string>
+    <string name="svc_echo_tag">ECHO</string>
+    <string name="svc_echo_desc">A painless scan that shows how well your heart is pumping. Doctors often suggest one after breathlessness, chest pain or a murmur.</string>
+    <string name="svc_gyn_name">Gynecology &amp; maternal care</string>
+    <string name="svc_gyn_desc">Check-ups before, during and after pregnancy, and someone to talk to about periods, PCOS or anything else on your mind.</string>
+    <string name="svc_card_name">Cardiology</string>
+    <string name="svc_card_desc">For blood pressure, palpitations or chest discomfort, or simply a check-up if heart trouble runs in your family.</string>
+    <string name="svc_opd_name">General OPD</string>
+    <string name="svc_opd_desc">Fever, cough, a stomach upset or a routine check-up. See a doctor any day of the week, for anyone in the family.</string>
+    <string name="cd_book_service">Book %1$s</string>
+
+    <!-- Visit -->
+    <string name="visit_eyebrow">Your visit</string>
+    <string name="visit_title">Good to know before you come.</string>
+    <string name="tile_hours_title">Open every day</string>
+    <string name="tile_hours_body">8:00 AM to 9:00 PM, including Sundays.</string>
+    <string name="tile_safe_title">Painless and radiation-free</string>
+    <string name="tile_safe_body">USG and ECHO use sound waves only. No needles, no radiation.</string>
+    <string name="tile_prep_title">Come prepared</string>
+    <string name="tile_prep_body">Some scans need fasting or a full bladder. We’ll tell you when you book. Bring previous reports and prescriptions.</string>
+    <string name="tile_doc_title">Results, then a doctor</string>
+    <string name="tile_doc_body">Gynecology, cardiology and OPD doctors are in the same building to review your report.</string>
+
+    <!-- Appointments -->
+    <string name="book_eyebrow">Appointments</string>
+    <string name="book_title">Book a visit.</string>
+    <string name="book_lead">Send a request and the clinic will call you to confirm a time.</string>
+    <string name="prefer_to_talk">Prefer to talk? </string>
+    <string name="request_appointment">Request appointment</string>
+    <string name="emergency">For a medical emergency, call 112.</string>
+    <string name="emergency_lead">For a medical emergency, call </string>
+
+    <!-- Location -->
+    <string name="location_eyebrow">Location</string>
+    <string name="location_title">Find us in Thakurpukur.</string>
+    <string name="address">2nd, Sister Nivedita Rd, East Barisha Govt Colony, Manjhi Para, Thakurpukur, Kolkata, West Bengal 700063</string>
+    <string name="address_meta">Plus Code F886+QC · Open daily, 8 AM – 9 PM</string>
+    <string name="get_directions">Get directions</string>
+    <string name="copy_address">Copy address</string>
+    <string name="address_copied">Address copied</string>
+
+    <!-- Upcoming request -->
+    <string name="upcoming_label">Your request</string>
+    <string name="upcoming_note">The clinic will call %1$s to confirm a time.</string>
+
+    <!-- Footer -->
+    <string name="footer_copy">© %1$d Mom’s Health Care · Thakurpukur, Kolkata</string>
+    <string name="appearance">Appearance</string>
+    <string name="appearance_dark">Dark, like the website</string>
+    <string name="appearance_light">Light</string>
+    <string name="appearance_system">Match my phone</string>
+
+    <!-- Form -->
+    <string name="f_name">Patient name</string>
+    <string name="f_phone">Mobile number</string>
+    <string name="f_service">Service</string>
+    <string name="f_date">Preferred date</string>
+    <string name="f_time">Preferred time</string>
+    <string name="f_notes">Notes</string>
+    <string name="f_optional">(optional)</string>
+    <string name="f_notes_hint">e.g. weeks of pregnancy, referral, previous reports</string>
+    <string name="country_code">+91</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="other_date">Other</string>
+    <string name="other_date_bottom">date</string>
+    <string name="time_morning">Morning</string>
+    <string name="time_morning_range">8 AM – 12 PM</string>
+    <string name="time_afternoon">Afternoon</string>
+    <string name="time_afternoon_range">12 – 4 PM</string>
+    <string name="time_evening">Evening</string>
+    <string name="time_evening_range">4 – 9 PM</string>
+    <string name="sending">Sending…</string>
+    <string name="pick_date">Choose a date</string>
+
+    <string name="err_name">Please enter the patient’s name.</string>
+    <string name="err_phone">Enter a valid 10-digit mobile number.</string>
+    <string name="err_service">Please choose a service.</string>
+    <string name="err_date">Please choose a date.</string>
+    <string name="err_date_past">Please choose today or a later date.</string>
+    <string name="err_time">Please choose a time.</string>
+    <string name="check_fields">Please check the highlighted fields.</string>
+
+    <!-- Result -->
+    <string name="sent_title">Request sent.</string>
+    <string name="sent_body">The clinic will call you on %1$s to confirm a time.</string>
+    <string name="sent_patient">Patient</string>
+    <string name="done">Done</string>
+    <string name="call_clinic">Call the clinic</string>
+
+    <string name="fail_title">Couldn’t send your request</string>
+    <string name="fail_body">Check your internet connection and try again. You can also send it from your email app, or call the clinic.</string>
+    <string name="fail_inactive">The clinic’s booking inbox isn’t ready yet. Please send it from your email app or call the clinic.</string>
+    <string name="try_again">Try again</string>
+    <string name="use_email">Use email app</string>
+    <string name="no_app">No app found to open this.</string>
+    <string name="email_subject">New appointment request · Mom’s Health Care</string>
+</resources>

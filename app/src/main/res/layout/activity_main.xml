@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ============ HERO ============ -->
+            <LinearLayout
+                android:id="@+id/hero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingTop="12dp">
+
+                <!-- Floating instrument tiles, as on the website -->
+                <FrameLayout
+                    android:id="@+id/tiles"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="20dp"
+                    android:clipChildren="false"
+                    android:importantForAccessibility="noHideDescendants">
+
+                    <FrameLayout
+                        android:id="@+id/tileSteth"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="start|bottom"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginBottom="4dp"
+                        android:background="@drawable/tile_bg_accent"
+                        android:rotation="-9">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_stethoscope"
+                            app:tint="@color/text"
+                            tools:ignore="ContentDescription" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/tileProbe"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:layout_gravity="center_horizontal|top"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/tile_bg"
+                        android:rotation="7">
+
+                        <ImageView
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_probe"
+                            app:tint="@color/tile_icon"
+                            tools:ignore="ContentDescription" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/tileHeart"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginEnd="40dp"
+                        android:background="@drawable/tile_bg"
+                        android:rotation="11">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_heart_pulse"
+                            app:tint="@color/tile_icon"
+                            tools:ignore="ContentDescription" />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/heroEyebrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/gutter"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="center"
+                    android:text="@string/hero_eyebrow"
+                    android:textColor="@color/text_2"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/heroTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/gutter"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="0.96"
+                    android:textAppearance="@style/TextAppearance.Moms.Display"
+                    tools:text="Precision diagnostics, close to home." />
+
+                <TextView
+                    android:id="@+id/heroSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="32dp"
+                    android:layout_marginTop="18dp"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.1"
+                    android:text="@string/hero_sub"
+                    android:textAppearance="@style/TextAppearance.Moms.Lead" />
+
+                <LinearLayout
+                    android:id="@+id/heroCtas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/heroBook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/book_appointment" />
+
+                    <TextView
+                        android:id="@+id/heroCall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/row_bg"
+                        android:fontFamily="@font/inter_medium"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="10dp"
+                        android:text="@string/call_link"
+                        android:textColor="@color/text"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <com.momshealthcare.app.EcgView
+                    android:id="@+id/ecg"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"
+                    android:layout_marginTop="36dp"
+                    android:importantForAccessibility="no" />
+
+                <LinearLayout
+                    android:id="@+id/heroFacts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="6dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/rating"
+                        android:textAppearance="@style/TextAppearance.Moms.BodySmall"
+                        app:drawableStartCompat="@drawable/ic_star"
+                        app:drawableTint="@color/text" />
+
+                    <ImageView
+                        android:id="@+id/heroDot"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/dot_open"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/heroStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:textAppearance="@style/TextAppearance.Moms.BodySmall"
+                        tools:text="@string/status_open" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/heroArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/area"
+                    android:textAppearance="@style/TextAppearance.Moms.BodySmall" />
+            </LinearLayout>
+
+            <!-- ============ UPCOMING REQUEST ============ -->
+            <LinearLayout
+                android:id="@+id/upcoming"
+                style="@style/Moms.Card"
+                android:layout_marginHorizontal="@dimen/gutter"
+                android:layout_marginTop="40dp"
+                android:padding="20dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/upcoming_label"
+                    android:textAppearance="@style/TextAppearance.Moms.Label"
+                    app:drawableStartCompat="@drawable/ic_calendar"
+                    app:drawableTint="@color/text_2" />
+
+                <TextView
+                    android:id="@+id/upcomingService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textAppearance="@style/TextAppearance.Moms.Headline"
+                    tools:text="Ultrasound (USG)" />
+
+                <TextView
+                    android:id="@+id/upcomingWhen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="@style/TextAppearance.Moms"
+                    tools:text="Sat, 25 Oct · Morning, 8 AM – 12 PM" />
+
+                <TextView
+                    android:id="@+id/upcomingNote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textAppearance="@style/TextAppearance.Moms.BodySmall"
+                    tools:text="The clinic will call 98765 43210 to confirm a time." />
+            </LinearLayout>
+
+            <!-- ============ SERVICES ============ -->
+            <LinearLayout
+                android:id="@+id/services"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_gap"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/gutter">
+
+                <TextView
+                    style="@style/Moms.Eyebrow"
+                    android:text="@string/services_eyebrow" />
+
+                <TextView
+                    android:id="@+id/servicesTitle"
+                    style="@style/Moms.SectionTitle"
+                    android:text="@string/services_title" />
+
+                <LinearLayout
+                    android:id="@+id/serviceList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- ============ YOUR VISIT ============ -->
+            <LinearLayout
+                android:id="@+id/visit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_gap"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/gutter">
+
+                <TextView
+                    style="@style/Moms.Eyebrow"
+                    android:text="@string/visit_eyebrow" />
+
+                <TextView
+                    android:id="@+id/visitTitle"
+                    style="@style/Moms.SectionTitle"
+                    android:text="@string/visit_title" />
+
+                <LinearLayout
+                    android:id="@+id/tileList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- ============ APPOINTMENTS ============ -->
+            <LinearLayout
+                android:id="@+id/bookSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_gap"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/gutter">
+
+                <TextView
+                    style="@style/Moms.Eyebrow"
+                    android:text="@string/book_eyebrow" />
+
+                <TextView
+                    android:id="@+id/bookTitle"
+                    style="@style/Moms.SectionTitle"
+                    android:text="@string/book_title" />
+
+                <TextView
+                    android:id="@+id/bookLead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:lineSpacingMultiplier="1.08"
+                    android:text="@string/book_lead"
+                    android:textAppearance="@style/TextAppearance.Moms.Lead" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bookButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="28dp"
+                    android:text="@string/request_appointment" />
+
+                <TextView
+                    android:id="@+id/bookCall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/row_bg"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="10dp"
+                    android:textAppearance="@style/TextAppearance.Moms.BodySmall"
+                    tools:text="Prefer to talk? Call 084206 98958 ›" />
+            </LinearLayout>
+
+            <!-- ============ LOCATION ============ -->
+            <LinearLayout
+                android:id="@+id/location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/section_gap"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/gutter">
+
+                <TextView
+                    style="@style/Moms.Eyebrow"
+                    android:text="@string/location_eyebrow" />
+
+                <TextView
+                    android:id="@+id/locationTitle"
+                    style="@style/Moms.SectionTitle"
+                    android:text="@string/location_title" />
+
+                <LinearLayout
+                    android:id="@+id/locationCard"
+                    style="@style/Moms.Card"
+                    android:layout_marginTop="28dp">
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingMultiplier="1.1"
+                        android:text="@string/address"
+                        android:textAppearance="@style/TextAppearance.Moms.Headline"
+                        android:textIsSelectable="true" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/address_meta"
+                        android:textAppearance="@style/TextAppearance.Moms.BodySmall" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/directions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:text="@string/get_directions" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/copyAddress"
+                        style="@style/Widget.Moms.Button.Secondary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/copy_address" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ============ FOOTER ============ -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/gutter"
+                android:layout_marginTop="@dimen/section_gap"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:id="@+id/footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/gutter"
+                android:paddingTop="28dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_mark"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/inter_semibold"
+                        android:text="@string/brand"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/footerCopy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textAppearance="@style/TextAppearance.Moms.Caption"
+                    tools:text="© 2026 Mom’s Health Care · Thakurpukur, Kolkata" />
+
+                <TextView
+                    android:id="@+id/appearance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-10dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/row_bg"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="8dp"
+                    android:textAppearance="@style/TextAppearance.Moms.Label"
+                    app:drawableStartCompat="@drawable/ic_moon"
+                    app:drawableTint="@color/text_2"
+                    tools:text="Appearance · Dark" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ============ TOP BAR ============ -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/bar_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bar_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/gutter">
+
+            <LinearLayout
+                android:id="@+id/brand"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_mark"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/inter_semibold"
+                    android:letterSpacing="-0.015"
+                    android:maxLines="1"
+                    android:text="@string/brand"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/barCall"
+                style="@style/Widget.Moms.IconButton"
+                android:contentDescription="@string/cd_call"
+                android:src="@drawable/ic_phone"
+                android:padding="11dp"
+                android:scaleType="fitCenter" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/barBook"
+                style="@style/Widget.Moms.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/book" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/topBarLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0"
+            android:background="@color/line_soft" />
+    </LinearLayout>
+
+    <!-- ============ FLOATING ACTION BAR ============ -->
+    <LinearLayout
+        android:id="@+id/actionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/action_bar_bg"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:visibility="invisible">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/actionCall"
+            style="@style/Widget.Moms.Button.Secondary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/call" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/actionBook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="2"
+            android:text="@string/book_a_visit" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/toast"
+        style="@style/Moms.Toast" />
+</FrameLayout>
