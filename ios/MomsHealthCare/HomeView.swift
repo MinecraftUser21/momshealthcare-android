@@ -135,6 +135,7 @@ struct HomeView: View {
                                 .font(.system(size: 17, weight: .semibold))
                                 .foregroundStyle(Palette.text)
                                 .lineLimit(2)
+                                .minimumScaleFactor(0.8)
                                 .multilineTextAlignment(.leading)
                                 .padding(.top, 12)
                             Text(svc.short)
@@ -145,7 +146,7 @@ struct HomeView: View {
                             Spacer(minLength: 0)
                         }
                         .padding(18)
-                        .frame(width: 164, height: 184, alignment: .topLeading)
+                        .frame(width: 176, height: 188, alignment: .topLeading)
                         .background(RoundedRectangle(cornerRadius: 24, style: .continuous).fill(Palette.surface))
                     }
                     .buttonStyle(PressStyle())

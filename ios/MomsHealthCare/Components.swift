@@ -41,9 +41,8 @@ final class Router: ObservableObject {
 
     init() {
         #if DEBUG
-        // Screenshot mode: "-tab clinic" opens a tab, "-book YES" opens the booking form.
+        // Screenshot mode: "-tab clinic" opens a tab ("-book YES" is handled by RootView).
         if let t = UserDefaults.standard.string(forKey: "tab"), let tab = Tab(rawValue: t) { self.tab = tab }
-        if UserDefaults.standard.bool(forKey: "book") { booking = Booking() }
         #endif
     }
 

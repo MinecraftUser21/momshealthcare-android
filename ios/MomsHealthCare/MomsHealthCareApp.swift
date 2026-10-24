@@ -30,6 +30,15 @@ struct RootView: View {
             }
         }
         .tint(Palette.text)
+        #if DEBUG
+        .task {
+            // Screenshot mode: "-book YES" opens the booking form once the window is up.
+            if UserDefaults.standard.bool(forKey: "book") {
+                try? await Task.sleep(nanoseconds: 800_000_000)
+                router.book()
+            }
+        }
+        #endif
         .sheet(item: $router.booking) { booking in
             BookingView(prefill: booking)
                 .environmentObject(store)
