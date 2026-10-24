@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/gutter"
+        android:paddingTop="20dp"
+        android:paddingBottom="40dp">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Moms.ScreenTitle"
+            android:text="@string/tab_pregnancy" />
+
+        <TextView
+            android:id="@+id/lead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/pregnancy_lead"
+            android:textAppearance="@style/TextAppearance.Moms.BodySmall" />
+
+        <!-- No dates yet -->
+        <LinearLayout
+            android:id="@+id/setup"
+            style="@style/Moms.Card"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <FrameLayout
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:background="@drawable/icon_circle">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_baby"
+                    app:tint="@color/text" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/preg_setup_title"
+                android:textAppearance="@style/TextAppearance.Moms.Headline" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:lineSpacingMultiplier="1.08"
+                android:text="@string/preg_setup_body"
+                android:textAppearance="@style/TextAppearance.Moms.BodySmall" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pickLmp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/preg_pick_lmp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/pickDue"
+                style="@style/Widget.Moms.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/preg_pick_due" />
+        </LinearLayout>
+
+        <!-- Tracker -->
+        <LinearLayout
+            android:id="@+id/tracker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/progressCard"
+                style="@style/Moms.Card"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal">
+
+                <FrameLayout
+                    android:layout_width="188dp"
+                    android:layout_height="188dp">
+
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/ring"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:indeterminate="false"
+                        android:max="1000"
+                        app:indicatorColor="@color/text"
+                        app:indicatorSize="184dp"
+                        app:trackColor="@color/field"
+                        app:trackCornerRadius="6dp"
+                        app:trackThickness="10dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/weeks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:textAppearance="@style/TextAppearance.Moms.Display"
+                            android:textSize="52sp"
+                            tools:text="12" />
+
+                        <TextView
+                            android:id="@+id/weeksLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textAppearance="@style/TextAppearance.Moms.BodySmall"
+                            tools:text="weeks, 3 days" />
+                    </LinearLayout>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
+
+                    <include
+                        android:id="@+id/statTrimester"
+                        layout="@layout/item_stat" />
+
+                    <include
+                        android:id="@+id/statDue"
+                        layout="@layout/item_stat" />
+
+                    <include
+                        android:id="@+id/statToGo"
+                        layout="@layout/item_stat" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/overdue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/preg_overdue"
+                    android:textAppearance="@style/TextAppearance.Moms.BodySmall"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/change"
+                        style="@style/Widget.Moms.Button.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/preg_change"
+                        android:textColor="@color/text"
+                        app:backgroundTint="@color/btn_secondary_bg" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/clear"
+                        style="@style/Widget.Moms.Button.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/preg_clear"
+                        android:textColor="@color/text"
+                        app:backgroundTint="@color/btn_secondary_bg" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/scansHeader"
+                style="@style/Moms.SectionHeader"
+                android:text="@string/preg_scans" />
+
+            <LinearLayout
+                android:id="@+id/scanList"
+                style="@style/Moms.Card"
+                android:paddingVertical="8dp" />
+
+            <LinearLayout
+                android:id="@+id/checkups"
+                style="@style/Moms.Card"
+                android:layout_marginTop="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/preg_checkups"
+                    android:textAppearance="@style/TextAppearance.Moms.Strong" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/preg_checkups_body"
+                    android:textAppearance="@style/TextAppearance.Moms.BodySmall" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/bookCheckup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/preg_book_checkup" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/preg_disclaimer"
+            android:textAppearance="@style/TextAppearance.Moms.Caption" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

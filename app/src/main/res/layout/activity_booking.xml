@@ -65,6 +65,25 @@
                     android:layout_marginTop="24dp"
                     android:padding="20dp">
 
+                    <!-- Saved patients -->
+                    <LinearLayout
+                        android:id="@+id/whoBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="22dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            style="@style/Moms.FieldLabel"
+                            android:text="@string/who_for" />
+
+                        <com.momshealthcare.app.FlowLayout
+                            android:id="@+id/profileGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
                     <!-- Name -->
                     <TextView
                         style="@style/Moms.FieldLabel"
@@ -132,6 +151,15 @@
                     <TextView
                         android:id="@+id/phoneError"
                         style="@style/Moms.FieldError" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/saveDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="-6dp"
+                        android:layout_marginTop="6dp"
+                        android:checked="true"
+                        android:text="@string/save_details" />
 
                     <!-- Service -->
                     <TextView
@@ -317,12 +345,12 @@
                     android:text="@string/done" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/sentCall"
+                    android:id="@+id/sentCalendar"
                     style="@style/Widget.Moms.Button.Secondary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="@string/call_clinic" />
+                    android:text="@string/add_to_calendar" />
             </LinearLayout>
         </FrameLayout>
     </androidx.core.widget.NestedScrollView>

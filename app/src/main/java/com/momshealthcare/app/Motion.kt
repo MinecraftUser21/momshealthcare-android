@@ -12,7 +12,6 @@ import androidx.core.app.ActivityManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.animation.PathInterpolatorCompat
-import androidx.core.widget.NestedScrollView
 
 /**
  * Motion follows the website: one easing curve, short rises and fades, nothing that loops
@@ -65,55 +64,6 @@ object Motion {
         ObjectAnimator.ofFloat(view, View.TRANSLATION_X, 0f, -d, d, -d * 0.6f, d * 0.6f, -d * 0.25f, 0f)
             .setDuration(420)
             .start()
-    }
-}
-
-/** Fades sections up as they scroll into view (the website's [data-reveal]). */
-class Revealer(private val scroll: NestedScrollView, private val content: View) {
-    private val pending = ArrayList<View>()
-    private val enabled = Motion.enabled(scroll.context)
-
-    fun add(vararg views: View) {
-        if (!enabled) return
-        for (v in views) {
-            v.alpha = 0f
-            v.translationY = Motion.dp(v.context, 28f)
-            pending.add(v)
-        }
-    }
-
-    fun check() {
-        if (pending.isEmpty() || scroll.height == 0) return
-        val limit = scroll.scrollY + scroll.height * 0.94f
-        var i = 0
-        var arrived = 0
-        while (i < pending.size) {
-            val v = pending[i]
-            if (topInContent(v) < limit) {
-                pending.removeAt(i)
-                v.animate()
-                    .alpha(1f)
-                    .translationY(0f)
-                    .setStartDelay(arrived * 90L)
-                    .setDuration(760)
-                    .setInterpolator(Motion.ease)
-                    .withLayer()
-                    .start()
-                arrived++
-            } else {
-                i++
-            }
-        }
-    }
-
-    private fun topInContent(v: View): Int {
-        var y = 0
-        var cur: View = v
-        while (cur !== content) {
-            y += cur.top
-            cur = cur.parent as? View ?: break
-        }
-        return y
     }
 }
 

@@ -163,6 +163,78 @@
 
     <style name="Moms" />
 
+    <!-- App shell -->
+    <style name="TextAppearance.Moms.NavLabel">
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="fontFamily">@font/inter_medium</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="Widget.Moms.BottomNav" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/bg</item>
+        <item name="backgroundTint">@color/bg</item>
+        <item name="itemIconTint">@color/nav_item</item>
+        <item name="itemTextColor">@color/nav_item</item>
+        <item name="itemIconSize">22dp</item>
+        <item name="itemRippleColor">@color/ripple</item>
+        <item name="itemActiveIndicatorStyle">@style/Widget.Moms.BottomNav.Indicator</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.Moms.NavLabel</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.Moms.NavLabel</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Widget.Moms.BottomNav.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/field</item>
+    </style>
+
+    <style name="Widget.Moms.Fab" parent="Widget.Material3.ExtendedFloatingActionButton.Icon.Primary">
+        <item name="backgroundTint">@color/btn_primary_bg</item>
+        <item name="android:textColor">@color/on_accent</item>
+        <item name="iconTint">@color/on_accent</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Button</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Moms.Pill</item>
+        <item name="rippleColor">@color/ripple</item>
+        <item name="elevation">3dp</item>
+    </style>
+
+    <style name="ThemeOverlay.Moms.BottomSheet" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.Moms.BottomSheet</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="enableEdgeToEdge">true</item>
+    </style>
+
+    <style name="Widget.Moms.BottomSheet" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="backgroundTint">@color/surface_2</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Moms.Sheet</item>
+    </style>
+
+    <style name="ShapeAppearance.Moms.Sheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">28dp</item>
+        <item name="cornerSizeTopRight">28dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <!-- Large screen title at the top of each tab -->
+    <style name="Moms.ScreenTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Title</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="Moms.SectionHeader">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.Headline</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
     <style name="Moms.FieldLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

@@ -34,6 +34,8 @@ class BookingActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_SERVICE = "service"
+        const val EXTRA_NOTES = "notes"
+        const val EXTRA_DATE = "date"
         private const val QUICK_DAYS = 14
         private const val TAG_PICKER = "date_picker"
     }
@@ -50,6 +52,7 @@ class BookingActivity : AppCompatActivity() {
     private val datePills = LinkedHashMap<String, ItemDateBinding>()
     private lateinit var otherPill: ItemDateBinding
     private val slotViews = LinkedHashMap<String, ItemTimeBinding>()
+    private val profilePills = ArrayList<Pair<Store.Profile, TextView>>()
 
     private var titleInBar = false
 
@@ -68,10 +71,13 @@ class BookingActivity : AppCompatActivity() {
         buildServices()
         buildDates()
         buildSlots()
+        buildProfiles()
         bindFields()
 
         if (savedInstanceState == null) {
             serviceId = Clinic.service(intent.getStringExtra(EXTRA_SERVICE))?.id
+            intent.getStringExtra(EXTRA_NOTES)?.let { b.notesInput.setText(it) }
+            dateIso = intent.getStringExtra(EXTRA_DATE)?.takeIf { it >= Clinic.todayIso() }
             if (Motion.enabled(this)) {
                 Motion.riseIn(listOf(b.eyebrow, b.title, b.lead, b.preferCall, b.card), startDelay = 60, stagger = 60, duration = 640)
             }
@@ -79,7 +85,7 @@ class BookingActivity : AppCompatActivity() {
             serviceId = savedInstanceState.getString("service")
             dateIso = savedInstanceState.getString("date")
             slotId = savedInstanceState.getString("slot")
-            if (savedInstanceState.getBoolean("sent")) Store.lastRequest(this)?.let { showSent(it, animate = false) }
+            if (savedInstanceState.getBoolean("sent")) Store.latest(this)?.let { showSent(it, animate = false) }
         }
         refreshServices()
         dateIso?.let { selectDate(it) }
@@ -92,12 +98,12 @@ class BookingActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        setSending(BookingSender.inFlight)
-        BookingSender.attach(::onResult)
+        setSending(BookingSender.isInFlight(BookingSender.BOOKING))
+        BookingSender.attach(BookingSender.BOOKING, ::onResult)
     }
 
     override fun onStop() {
-        BookingSender.detach()
+        BookingSender.detach(BookingSender.BOOKING)
         super.onStop()
     }
 
@@ -150,7 +156,7 @@ class BookingActivity : AppCompatActivity() {
             setSpan(ForegroundColorSpan(color(R.color.text_3)), start, length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         }
         b.done.setOnClickListener { finish() }
-        b.sentCall.setOnClickListener { dial() }
+        b.sentCalendar.setOnClickListener { Store.latest(this)?.let { addToCalendar(it) } }
 
         b.scroll.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, y, _, _ ->
             val show = y > dp(72)
@@ -177,6 +183,26 @@ class BookingActivity : AppCompatActivity() {
             }
             b.serviceGroup.addView(pill)
             serviceViews[svc.id] = pill
+        }
+    }
+
+    /** One tap fills the name and number of someone booked for before. */
+    private fun buildProfiles() {
+        val people = Store.profiles(this)
+        if (people.isEmpty()) return
+        b.whoBox.visibility = View.VISIBLE
+        for (p in people) {
+            val pill = layoutInflater.inflate(R.layout.item_choice, b.profileGroup, false) as TextView
+            pill.text = p.name
+            pill.setOnClickListener {
+                b.nameInput.setText(p.name)
+                b.phoneInput.setText(Clinic.prettyPhone(p.phone))
+                profilePills.forEach { (q, v) -> v.isSelected = q === p }
+                if (b.nameError.visibility == View.VISIBLE) checkName()
+                if (b.phoneError.visibility == View.VISIBLE) checkPhone()
+            }
+            b.profileGroup.addView(pill)
+            profilePills.add(p to pill)
         }
     }
 
@@ -372,7 +398,7 @@ class BookingActivity : AppCompatActivity() {
     // ------------------------------------------------------------------
 
     private fun submit() {
-        if (BookingSender.inFlight) return
+        if (BookingSender.isInFlight(BookingSender.BOOKING)) return
         val invalid = validate()
         if (invalid != null) {
             val top = topInContent(invalid) - dp(140)
@@ -407,13 +433,18 @@ class BookingActivity : AppCompatActivity() {
 
         hideKeyboard()
         setSending(true)
-        BookingSender.send(this, fields, Store.Request(name, phone, service.label, date, slot.id))
+        val record = Store.Request(System.currentTimeMillis(), name, phone, service.label, date, slot.id)
+        val remember = b.saveDetails.isChecked
+        BookingSender.send(this, BookingSender.BOOKING, fields) { ctx ->
+            Store.addRequest(ctx, record)
+            if (remember) Store.saveProfile(ctx, Store.Profile(name, phone))
+        }
     }
 
     private fun onResult(result: BookingSender.Result) {
         setSending(false)
         when (result) {
-            is BookingSender.Result.Sent -> Store.lastRequest(this)?.let { showSent(it, animate = true) }
+            is BookingSender.Result.Sent -> Store.latest(this)?.let { showSent(it, animate = true) }
             is BookingSender.Result.NotActivated -> showFailure(inactive = true)
             is BookingSender.Result.Failed -> showFailure(inactive = false)
         }
@@ -498,7 +529,7 @@ class BookingActivity : AppCompatActivity() {
             b.check.setImageDrawable(check)
             check?.start()
             if (animate && Motion.enabled(this)) {
-                Motion.riseIn(listOf(b.sentTitle, b.sentBody, b.summary, b.done, b.sentCall), startDelay = 260, stagger = 70)
+                Motion.riseIn(listOf(b.sentTitle, b.sentBody, b.summary, b.done, b.sentCalendar), startDelay = 260, stagger = 70)
             }
         }
         if (animate && Motion.enabled(this)) {

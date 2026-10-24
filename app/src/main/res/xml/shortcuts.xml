@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:shortcutId="book" android:enabled="true" android:icon="@drawable/shortcut_book"
+        android:shortcutShortLabel="@string/shortcut_book" android:shortcutLongLabel="@string/shortcut_book_long">
+        <intent android:action="android.intent.action.VIEW"
+            android:targetPackage="com.momshealthcare.app"
+            android:targetClass="com.momshealthcare.app.BookingActivity" />
+    </shortcut>
+    <shortcut android:shortcutId="call" android:enabled="true" android:icon="@drawable/shortcut_call"
+        android:shortcutShortLabel="@string/shortcut_call" android:shortcutLongLabel="@string/shortcut_call_long">
+        <intent android:action="android.intent.action.DIAL" android:data="tel:+918420698958" />
+    </shortcut>
+    <shortcut android:shortcutId="directions" android:enabled="true" android:icon="@drawable/shortcut_directions"
+        android:shortcutShortLabel="@string/shortcut_directions" android:shortcutLongLabel="@string/shortcut_directions_long">
+        <intent android:action="android.intent.action.VIEW"
+            android:data="https://www.google.com/maps/dir/?api=1&amp;destination=F886%2BQC%2C%20Kolkata%2C%20West%20Bengal" />
+    </shortcut>
+</shortcuts>

@@ -18,7 +18,7 @@
     <color name="open">#28A745</color>
     <color name="open_halo">#3328A745</color>
     <color name="closed">#E5352B</color>
-    <color name="bar_bg">#F2FFFFFF</color>
+    <color name="bar_bg">#FFFFFFFF</color>
     <color name="tile_stroke">#24000000</color>
     <color name="tile_icon">#73000000</color>
     <color name="tile_stroke_accent">#5C000000</color>

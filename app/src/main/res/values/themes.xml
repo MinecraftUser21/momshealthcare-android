@@ -62,6 +62,14 @@
         <item name="materialButtonStyle">@style/Widget.Moms.Button</item>
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.Moms.Dialog</item>
         <item name="materialCalendarTheme">@style/ThemeOverlay.Moms.Calendar</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.Moms.BottomSheet</item>
+        <item name="checkboxStyle">@style/Widget.Moms.CheckBox</item>
+    </style>
+
+    <style name="Widget.Moms.CheckBox" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="buttonTint">@color/text</item>
+        <item name="android:textAppearance">@style/TextAppearance.Moms.BodySmall</item>
+        <item name="android:textColor">@color/text_2</item>
     </style>
 
     <style name="Theme.Moms.Starting" parent="Theme.SplashScreen">

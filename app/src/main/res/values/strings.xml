@@ -3,87 +3,204 @@
     <string name="app_name">Mom’s Health Care</string>
     <string name="brand">Mom’s Health Care</string>
 
-    <!-- Hero -->
-    <string name="hero_eyebrow">Diagnostic centre &amp; clinic · Thakurpukur</string>
-    <string name="hero_title">Precision diagnostics,</string>
-    <string name="hero_title_soft">close to home.</string>
-    <string name="hero_sub">Ultrasound, ECHO, gynecology, cardiology and a daily OPD, all under one roof.</string>
-    <string name="book_appointment">Book an appointment</string>
-    <string name="call_link">Call 084206 98958 ›</string>
-    <string name="rating">5.0 on Google</string>
-    <string name="area">East Barisha, Kolkata</string>
-
-    <!-- Status -->
-    <string name="status_open">Open now · until 9 PM</string>
-    <string name="status_closed_morning">Closed · opens 8 AM</string>
-    <string name="status_closed_night">Closed · opens 8 AM tomorrow</string>
-
-    <!-- Nav -->
+    <!-- Tabs -->
+    <string name="tab_home">Home</string>
+    <string name="tab_appointments">Appointments</string>
+    <string name="tab_pregnancy">Pregnancy</string>
+    <string name="tab_clinic">Clinic</string>
     <string name="book">Book</string>
-    <string name="call">Call</string>
     <string name="book_a_visit">Book a visit</string>
+    <string name="call">Call</string>
     <string name="cd_call">Call the clinic</string>
     <string name="cd_back">Back</string>
 
+    <!-- Shortcuts -->
+    <string name="shortcut_book">Book</string>
+    <string name="shortcut_book_long">Book an appointment</string>
+    <string name="shortcut_call">Call clinic</string>
+    <string name="shortcut_call_long">Call Mom’s Health Care</string>
+    <string name="shortcut_directions">Directions</string>
+    <string name="shortcut_directions_long">Directions to the clinic</string>
+
+    <!-- Home -->
+    <string name="greet_morning">Good morning</string>
+    <string name="greet_afternoon">Good afternoon</string>
+    <string name="greet_evening">Good evening</string>
+    <string name="greet_named">%1$s, %2$s</string>
+    <string name="status_open_title">Open now</string>
+    <string name="status_closed_title">Closed</string>
+    <string name="status_open_sub">Until 9 PM · Open every day, 8 AM – 9 PM</string>
+    <string name="status_closed_morning_sub">Opens at 8 AM today</string>
+    <string name="status_closed_night_sub">Opens tomorrow at 8 AM</string>
+    <string name="status_open">Open now · until 9 PM</string>
+    <string name="status_closed_morning">Closed · opens 8 AM</string>
+    <string name="status_closed_night">Closed · opens 8 AM tomorrow</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="for_patient">For %1$s</string>
+    <string name="add_to_calendar">Add to calendar</string>
+    <string name="view_all">View all</string>
+    <string name="q_book">Book</string>
+    <string name="q_call">Call</string>
+    <string name="q_directions">Directions</string>
+    <string name="q_pregnancy">Pregnancy</string>
+    <string name="services">Services</string>
+    <string name="before_you_come">Before you come</string>
+    <string name="home_footer">East Barisha, Thakurpukur · 5.0 on Google</string>
+
     <!-- Services -->
-    <string name="services_eyebrow">Services</string>
-    <string name="services_title">Everything you need, under one roof.</string>
     <string name="svc_usg_name">Ultrasound</string>
-    <string name="svc_usg_tag">USG</string>
+    <string name="svc_usg_short">Pregnancy, abdomen and pelvis scans.</string>
     <string name="svc_usg_desc">See how your baby is growing, or get a clear look at your abdomen and pelvis. We’ll explain what the scan shows before you leave.</string>
     <string name="svc_echo_name">Echocardiogram</string>
-    <string name="svc_echo_tag">ECHO</string>
+    <string name="svc_echo_short">A painless scan of how your heart pumps.</string>
     <string name="svc_echo_desc">A painless scan that shows how well your heart is pumping. Doctors often suggest one after breathlessness, chest pain or a murmur.</string>
     <string name="svc_gyn_name">Gynecology &amp; maternal care</string>
+    <string name="svc_gyn_short">Before, during and after pregnancy.</string>
     <string name="svc_gyn_desc">Check-ups before, during and after pregnancy, and someone to talk to about periods, PCOS or anything else on your mind.</string>
     <string name="svc_card_name">Cardiology</string>
+    <string name="svc_card_short">BP, palpitations and heart check-ups.</string>
     <string name="svc_card_desc">For blood pressure, palpitations or chest discomfort, or simply a check-up if heart trouble runs in your family.</string>
     <string name="svc_opd_name">General OPD</string>
+    <string name="svc_opd_short">A doctor every day, for the whole family.</string>
     <string name="svc_opd_desc">Fever, cough, a stomach upset or a routine check-up. See a doctor any day of the week, for anyone in the family.</string>
-    <string name="cd_book_service">Book %1$s</string>
+    <string name="how_to_prepare">How to prepare</string>
+    <string name="prep_note">General guidance. The clinic will confirm exactly what you need when they call.</string>
+    <string name="book_this">Book %1$s</string>
 
-    <!-- Visit -->
-    <string name="visit_eyebrow">Your visit</string>
-    <string name="visit_title">Good to know before you come.</string>
-    <string name="tile_hours_title">Open every day</string>
-    <string name="tile_hours_body">8:00 AM to 9:00 PM, including Sundays.</string>
+    <string-array name="prep_usg">
+        <item>Abdominal scans: usually nothing to eat for 6–8 hours before. Water is fine.</item>
+        <item>Pelvic and early pregnancy scans: a full bladder helps. Drink 4–5 glasses of water an hour before and don’t empty your bladder.</item>
+        <item>Bring previous scan reports and your doctor’s prescription.</item>
+    </string-array>
+    <string-array name="prep_echo">
+        <item>No fasting or special preparation is needed.</item>
+        <item>Wear a loose top that’s easy to open at the front.</item>
+        <item>Bring earlier ECG or ECHO reports and a list of your medicines.</item>
+    </string-array>
+    <string-array name="prep_gyn">
+        <item>Note the first day of your last period.</item>
+        <item>Bring your antenatal card and previous reports, if you have them.</item>
+        <item>List any medicines or supplements you take.</item>
+    </string-array>
+    <string-array name="prep_card">
+        <item>Bring earlier ECG, ECHO and blood test reports.</item>
+        <item>Bring your current medicines, or a list of them.</item>
+        <item>If you check your blood pressure at home, bring your recent readings.</item>
+    </string-array>
+    <string-array name="prep_opd">
+        <item>Bring previous prescriptions and reports.</item>
+        <item>Note when the symptoms started and any medicines already taken.</item>
+    </string-array>
+
+    <!-- Visit tips -->
     <string name="tile_safe_title">Painless and radiation-free</string>
     <string name="tile_safe_body">USG and ECHO use sound waves only. No needles, no radiation.</string>
     <string name="tile_prep_title">Come prepared</string>
-    <string name="tile_prep_body">Some scans need fasting or a full bladder. We’ll tell you when you book. Bring previous reports and prescriptions.</string>
+    <string name="tile_prep_body">Some scans need fasting or a full bladder. Bring previous reports and prescriptions.</string>
     <string name="tile_doc_title">Results, then a doctor</string>
     <string name="tile_doc_body">Gynecology, cardiology and OPD doctors are in the same building to review your report.</string>
 
     <!-- Appointments -->
+    <string name="appointments_lead">Requests you’ve sent. The clinic calls to confirm each one.</string>
+    <string name="earlier">Earlier</string>
+    <string name="no_appointments">No appointments yet</string>
+    <string name="no_appointments_body">Book a visit and the clinic will call you to confirm a time.</string>
+    <string name="status_requested">Waiting for call</string>
+    <string name="status_cancelled">Cancelled</string>
+    <string name="status_past">Past</string>
+    <string name="cancel_request">Cancel</string>
+    <string name="book_again">Book again</string>
+    <string name="cancel_title">Cancel this request?</string>
+    <string name="cancel_body">We’ll let the clinic know you no longer need this appointment.</string>
+    <string name="cancel_confirm">Cancel request</string>
+    <string name="keep">Keep</string>
+    <string name="cancel_sent">The clinic has been told</string>
+    <string name="cancel_failed">Couldn’t reach the clinic. Please call to cancel.</string>
+    <string name="cancel_subject">Appointment cancellation · Mom’s Health Care</string>
+
+    <!-- Pregnancy -->
+    <string name="pregnancy_lead">Track your weeks and see when each scan is due.</string>
+    <string name="preg_setup_title">When did your last period start?</string>
+    <string name="preg_setup_body">We’ll work out your due date, how far along you are and when your scans are due. This stays on your phone.</string>
+    <string name="preg_pick_lmp">Choose the date</string>
+    <string name="preg_pick_due">I know my due date</string>
+    <string name="preg_lmp_title">First day of your last period</string>
+    <string name="preg_due_title">Your due date</string>
+    <plurals name="preg_plus_days">
+        <item quantity="one">weeks, %d day</item>
+        <item quantity="other">weeks, %d days</item>
+    </plurals>
+    <string name="preg_week_day">%1$d weeks, %2$d days</string>
+    <string name="preg_trimester">Trimester</string>
+    <string name="preg_due">Due date</string>
+    <string name="preg_to_go">To go</string>
+    <string name="preg_days">%1$d days</string>
+    <string name="preg_first">First</string>
+    <string name="preg_second">Second</string>
+    <string name="preg_third">Third</string>
+    <string name="preg_change">Change dates</string>
+    <string name="preg_clear">Remove</string>
+    <string name="preg_clear_title">Remove pregnancy dates?</string>
+    <string name="preg_clear_body">Your dates will be deleted from this phone.</string>
+    <string name="preg_overdue">Your due date has passed. Congratulations if your baby has arrived! You can update or remove your dates.</string>
+    <string name="preg_scans">Scans to plan</string>
+    <string name="preg_checkups">Regular check-ups</string>
+    <string name="preg_checkups_body">The gynecologist sees you through every trimester, and after your baby arrives.</string>
+    <string name="preg_book_checkup">Book a check-up</string>
+    <string name="preg_disclaimer">For general information only. Your doctor will confirm your due date and which scans you need.</string>
+    <string name="scan_dating">Dating &amp; viability scan</string>
+    <string name="scan_nt">NT scan</string>
+    <string name="scan_anomaly">Anomaly scan (TIFFA)</string>
+    <string name="scan_growth">Growth scan</string>
+    <string name="scan_late">Growth &amp; Doppler scan</string>
+    <string name="scan_window">%1$d–%2$d weeks · %3$s – %4$s</string>
+    <string name="scan_window_done">%1$d–%2$d weeks</string>
+    <string name="scan_now_badge">Due now</string>
+    <string name="scan_note">%1$s (%2$d–%3$d weeks). Currently %4$d weeks %5$d days.</string>
+
+    <!-- Clinic -->
+    <string name="clinic_lead">Thakurpukur, Kolkata</string>
+    <string name="address">2nd, Sister Nivedita Rd, East Barisha Govt Colony, Manjhi Para, Thakurpukur, Kolkata, West Bengal 700063</string>
+    <string name="address_meta">Plus Code F886+QC</string>
+    <string name="get_directions">Directions</string>
+    <string name="copy_address">Copy address</string>
+    <string name="address_copied">Address copied</string>
+    <string name="opening_hours">Opening hours</string>
+    <string name="hours_value">8:00 AM – 9:00 PM</string>
+    <string name="today_suffix">%1$s (today)</string>
+    <string name="emergency_title">Medical emergency?</string>
+    <string name="emergency_body">Call 112 for an ambulance straight away.</string>
+    <string name="call_112">Call 112</string>
+    <string name="settings">Settings</string>
+    <string name="appearance">Appearance</string>
+    <string name="appearance_dark">Dark</string>
+    <string name="appearance_light">Light</string>
+    <string name="appearance_system">Match phone</string>
+    <string name="saved_patients">Saved patients</string>
+    <string name="saved_none">None yet</string>
+    <string name="saved_count">%1$d saved</string>
+    <string name="saved_empty_body">People you book for are saved here, so next time you can fill the form with one tap.</string>
+    <string name="remove">Remove</string>
+    <string name="close">Close</string>
+    <string name="open_source">Open source</string>
+    <string name="open_source_value">GitHub</string>
+    <string name="licenses">Licences</string>
+    <string name="licenses_body">This app is free and open source under the MIT License.\n\nInter typeface © The Inter Project Authors, SIL Open Font License 1.1.\n\nIcons from Lucide, ISC License.\n\nThe clinic’s name, logo and text belong to Mom’s Health Care.</string>
+    <string name="privacy_note">Your details stay on this phone. When you book, your request is sent to the clinic by email.</string>
+    <string name="version">Version %1$s</string>
+    <string name="repo_url">https://github.com/MinecraftUser21/momshealthcare-android</string>
+
+    <!-- Booking -->
     <string name="book_eyebrow">Appointments</string>
     <string name="book_title">Book a visit.</string>
     <string name="book_lead">Send a request and the clinic will call you to confirm a time.</string>
-    <string name="prefer_to_talk">Prefer to talk? </string>
+    <string name="prefer_to_talk">"Prefer to talk? "</string>
+    <string name="call_link">Call 084206 98958 ›</string>
     <string name="request_appointment">Request appointment</string>
     <string name="emergency">For a medical emergency, call 112.</string>
-    <string name="emergency_lead">For a medical emergency, call </string>
-
-    <!-- Location -->
-    <string name="location_eyebrow">Location</string>
-    <string name="location_title">Find us in Thakurpukur.</string>
-    <string name="address">2nd, Sister Nivedita Rd, East Barisha Govt Colony, Manjhi Para, Thakurpukur, Kolkata, West Bengal 700063</string>
-    <string name="address_meta">Plus Code F886+QC · Open daily, 8 AM – 9 PM</string>
-    <string name="get_directions">Get directions</string>
-    <string name="copy_address">Copy address</string>
-    <string name="address_copied">Address copied</string>
-
-    <!-- Upcoming request -->
-    <string name="upcoming_label">Your request</string>
-    <string name="upcoming_note">The clinic will call %1$s to confirm a time.</string>
-
-    <!-- Footer -->
-    <string name="footer_copy">© %1$d Mom’s Health Care · Thakurpukur, Kolkata</string>
-    <string name="appearance">Appearance</string>
-    <string name="appearance_dark">Dark, like the website</string>
-    <string name="appearance_light">Light</string>
-    <string name="appearance_system">Match my phone</string>
-
-    <!-- Form -->
+    <string name="emergency_lead">"For a medical emergency, call "</string>
+    <string name="who_for">Who is this for?</string>
+    <string name="save_details">Save these details for next time</string>
     <string name="f_name">Patient name</string>
     <string name="f_phone">Mobile number</string>
     <string name="f_service">Service</string>
@@ -94,7 +211,6 @@
     <string name="f_notes_hint">e.g. weeks of pregnancy, referral, previous reports</string>
     <string name="country_code">+91</string>
     <string name="today">Today</string>
-    <string name="tomorrow">Tomorrow</string>
     <string name="other_date">Other</string>
     <string name="other_date_bottom">date</string>
     <string name="time_morning">Morning</string>
@@ -114,7 +230,6 @@
     <string name="err_time">Please choose a time.</string>
     <string name="check_fields">Please check the highlighted fields.</string>
 
-    <!-- Result -->
     <string name="sent_title">Request sent.</string>
     <string name="sent_body">The clinic will call you on %1$s to confirm a time.</string>
     <string name="sent_patient">Patient</string>
@@ -128,4 +243,6 @@
     <string name="use_email">Use email app</string>
     <string name="no_app">No app found to open this.</string>
     <string name="email_subject">New appointment request · Mom’s Health Care</string>
+    <string name="calendar_title">%1$s · Mom’s Health Care</string>
+    <string name="calendar_desc">Appointment request for %1$s. The clinic will call to confirm the exact time. Phone: 084206 98958.</string>
 </resources>

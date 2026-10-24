@@ -19,8 +19,8 @@ android {
         applicationId = "com.momshealthcare.app"
         minSdk = 21
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1"
         vectorDrawables.useSupportLibrary = true
         // English only: keeps library translations out of the APK.
         @Suppress("DEPRECATION")
@@ -56,7 +56,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        buildConfig = false
+        buildConfig = true
     }
     packaging {
         resources.excludes += listOf("META-INF/*.version", "META-INF/**/LICENSE*", "kotlin/**", "DebugProbesKt.bin")

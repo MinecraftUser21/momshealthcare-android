@@ -12,13 +12,16 @@ import java.net.URLEncoder
 import java.util.concurrent.Executors
 
 /**
- * Sends an appointment request to the clinic inbox through the same FormSubmit form the
- * website uses, so the doctor gets an identical email whichever way the patient books.
+ * Sends requests to the clinic inbox through the same FormSubmit form the website uses,
+ * so the doctor gets an identical email whichever way the patient books.
  *
- * Survives the screen being rotated or left mid-send: the result waits in [pending]
- * until a screen [attach]es again.
+ * Each kind of send has a tag ("booking", "cancel"). A result waits in [pending] until a
+ * screen [attach]es for that tag, so rotating or leaving mid-send loses nothing.
  */
 object BookingSender {
+
+    const val BOOKING = "booking"
+    const val CANCEL = "cancel"
 
     sealed class Result {
         object Sent : Result()
@@ -30,23 +33,25 @@ object BookingSender {
     private val worker = Executors.newSingleThreadExecutor()
     private val main = Handler(Looper.getMainLooper())
 
-    var inFlight = false
-        private set
-    private var pending: Result? = null
-    private var listener: ((Result) -> Unit)? = null
+    private val inFlight = HashSet<String>()
+    private val pending = HashMap<String, Result>()
+    private val listeners = HashMap<String, (Result) -> Unit>()
 
-    fun attach(l: (Result) -> Unit) {
-        listener = l
-        pending?.let { pending = null; l(it) }
+    fun isInFlight(tag: String) = tag in inFlight
+
+    fun attach(tag: String, l: (Result) -> Unit) {
+        listeners[tag] = l
+        pending.remove(tag)?.let(l)
     }
 
-    fun detach() {
-        listener = null
+    fun detach(tag: String) {
+        listeners.remove(tag)
     }
 
-    fun send(context: Context, fields: Map<String, String>, record: Store.Request) {
-        if (inFlight) return
-        inFlight = true
+    /** [onSent] runs on the worker thread after a successful send, to record it. */
+    fun send(context: Context, tag: String, fields: Map<String, String>, onSent: ((Context) -> Unit)? = null) {
+        if (tag in inFlight) return
+        inFlight.add(tag)
         val app = context.applicationContext
         worker.execute {
             var result = post(fields)
@@ -55,11 +60,11 @@ object BookingSender {
                 Thread.sleep(1200)
                 result = post(fields)
             }
-            if (result is Result.Sent) Store.saveRequest(app, record)
+            if (result is Result.Sent) onSent?.invoke(app)
             main.post {
-                inFlight = false
-                val l = listener
-                if (l != null) l(result) else pending = result
+                inFlight.remove(tag)
+                val l = listeners[tag]
+                if (l != null) l(result) else pending[tag] = result
             }
         }
     }
@@ -83,7 +88,7 @@ object BookingSender {
                 // FormSubmit ties the form to the page it lives on; this is the website's form.
                 setRequestProperty("Referer", Clinic.WEBSITE)
                 setRequestProperty("Origin", Clinic.WEBSITE_ORIGIN)
-                setRequestProperty("User-Agent", "MomsHealthCare-Android/1.0 (Android ${Build.VERSION.RELEASE})")
+                setRequestProperty("User-Agent", "MomsHealthCare-Android/${BuildConfig.VERSION_NAME} (Android ${Build.VERSION.RELEASE})")
             }
             conn.outputStream.use { it.write(body) }
 

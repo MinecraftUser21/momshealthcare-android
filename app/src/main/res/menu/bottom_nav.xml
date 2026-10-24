@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home" android:icon="@drawable/ic_home" android:title="@string/tab_home" />
+    <item android:id="@+id/nav_appointments" android:icon="@drawable/ic_calendar" android:title="@string/tab_appointments" />
+    <item android:id="@+id/nav_pregnancy" android:icon="@drawable/ic_baby" android:title="@string/tab_pregnancy" />
+    <item android:id="@+id/nav_clinic" android:icon="@drawable/ic_clinic" android:title="@string/tab_clinic" />
+</menu>

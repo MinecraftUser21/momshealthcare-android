@@ -1,6 +1,8 @@
 package com.momshealthcare.app
 
 import android.content.Context
+import androidx.annotation.ArrayRes
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -34,7 +36,10 @@ object Clinic {
         val id: String,
         @StringRes val name: Int,
         val tag: String?,
+        @StringRes val short: Int,
         @StringRes val desc: Int,
+        @DrawableRes val icon: Int,
+        @ArrayRes val prep: Int,
         /** Short label for the form and summaries. */
         val label: String,
         /** Value sent to the clinic inbox (same as the website's <option value>). */
@@ -42,11 +47,11 @@ object Clinic {
     )
 
     val services = listOf(
-        Service("usg", R.string.svc_usg_name, "USG", R.string.svc_usg_desc, "Ultrasound (USG)", "USG (Ultrasound)"),
-        Service("echo", R.string.svc_echo_name, "ECHO", R.string.svc_echo_desc, "Echocardiogram (ECHO)", "ECHO (Echocardiogram)"),
-        Service("gyn", R.string.svc_gyn_name, null, R.string.svc_gyn_desc, "Gynecology & maternal care", "Gynecology & Maternal Care"),
-        Service("cardio", R.string.svc_card_name, null, R.string.svc_card_desc, "Cardiology", "Cardiology Consultation"),
-        Service("opd", R.string.svc_opd_name, null, R.string.svc_opd_desc, "General OPD", "General OPD"),
+        Service("usg", R.string.svc_usg_name, "USG", R.string.svc_usg_short, R.string.svc_usg_desc, R.drawable.ic_probe, R.array.prep_usg, "Ultrasound (USG)", "USG (Ultrasound)"),
+        Service("echo", R.string.svc_echo_name, "ECHO", R.string.svc_echo_short, R.string.svc_echo_desc, R.drawable.ic_heart_pulse, R.array.prep_echo, "Echocardiogram (ECHO)", "ECHO (Echocardiogram)"),
+        Service("gyn", R.string.svc_gyn_name, null, R.string.svc_gyn_short, R.string.svc_gyn_desc, R.drawable.ic_baby, R.array.prep_gyn, "Gynecology & maternal care", "Gynecology & Maternal Care"),
+        Service("cardio", R.string.svc_card_name, null, R.string.svc_card_short, R.string.svc_card_desc, R.drawable.ic_activity, R.array.prep_card, "Cardiology", "Cardiology Consultation"),
+        Service("opd", R.string.svc_opd_name, null, R.string.svc_opd_short, R.string.svc_opd_desc, R.drawable.ic_stethoscope, R.array.prep_opd, "General OPD", "General OPD"),
     )
 
     fun service(id: String?): Service? = services.firstOrNull { it.id == id }
@@ -56,14 +61,15 @@ object Clinic {
         @StringRes val title: Int,
         @StringRes val range: Int,
         val emailValue: String,
+        val startHour: Int,
         /** Hour (Kolkata) at which this slot is over for today. */
         val endsHour: Int,
     )
 
     val slots = listOf(
-        Slot("morning", R.string.time_morning, R.string.time_morning_range, "Morning (8 AM – 12 PM)", 12),
-        Slot("afternoon", R.string.time_afternoon, R.string.time_afternoon_range, "Afternoon (12 PM – 4 PM)", 16),
-        Slot("evening", R.string.time_evening, R.string.time_evening_range, "Evening (4 PM – 9 PM)", 21),
+        Slot("morning", R.string.time_morning, R.string.time_morning_range, "Morning (8 AM – 12 PM)", 8, 12),
+        Slot("afternoon", R.string.time_afternoon, R.string.time_afternoon_range, "Afternoon (12 PM – 4 PM)", 12, 16),
+        Slot("evening", R.string.time_evening, R.string.time_evening_range, "Evening (4 PM – 9 PM)", 16, 21),
     )
 
     fun slot(id: String?): Slot? = slots.firstOrNull { it.id == id }
@@ -122,6 +128,32 @@ object Clinic {
 
     fun isoFromUtcMillis(millis: Long): String =
         fmt("yyyy-MM-dd", TimeZone.getTimeZone("UTC")).format(java.util.Date(millis))
+
+    private const val DAY_MS = 86_400_000L
+
+    fun addDays(iso: String, days: Int): String = isoFromUtcMillis(utcMillis(iso) + days * DAY_MS)
+
+    /** Whole days from [fromIso] to [toIso]. */
+    fun daysBetween(fromIso: String, toIso: String): Int = ((utcMillis(toIso) - utcMillis(fromIso)) / DAY_MS).toInt()
+
+    /** "12 Mar" */
+    fun dayMonth(iso: String): String = parseIso(iso)?.let { fmt("d MMM").format(it.time) } ?: iso
+
+    /** Epoch millis for [hour]:00 Kolkata time on [iso]. */
+    fun millisAt(iso: String, hour: Int): Long = (parseIso(iso) ?: now()).apply {
+        set(Calendar.HOUR_OF_DAY, hour)
+        set(Calendar.MINUTE, 0)
+        set(Calendar.SECOND, 0)
+        set(Calendar.MILLISECOND, 0)
+    }.timeInMillis
+
+    fun greeting(context: Context, hour: Int = hourNow()): String = context.getString(
+        when {
+            hour < 12 -> R.string.greet_morning
+            hour < 17 -> R.string.greet_afternoon
+            else -> R.string.greet_evening
+        }
+    )
 
     // ---------------------------------------------------------------
     // Phone numbers: same rules as the website.

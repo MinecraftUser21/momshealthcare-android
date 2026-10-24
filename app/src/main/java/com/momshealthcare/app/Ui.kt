@@ -80,3 +80,26 @@ fun Context.leadWithLink(lead: CharSequence, link: CharSequence, @FontRes font: 
     }
     return sb
 }
+
+/** Opens the phone's calendar with the request filled in; the person saves it there. */
+fun Context.addToCalendar(r: Store.Request) {
+    val slot = Clinic.slot(r.slotId)
+    val start = Clinic.millisAt(r.dateIso, slot?.startHour ?: Clinic.OPENS_HOUR)
+    val end = Clinic.millisAt(r.dateIso, slot?.endsHour ?: Clinic.CLOSES_HOUR)
+    launch(
+        Intent(Intent.ACTION_INSERT)
+            .setData(android.provider.CalendarContract.Events.CONTENT_URI)
+            .putExtra(android.provider.CalendarContract.EXTRA_EVENT_BEGIN_TIME, start)
+            .putExtra(android.provider.CalendarContract.EXTRA_EVENT_END_TIME, end)
+            .putExtra(android.provider.CalendarContract.Events.TITLE, getString(R.string.calendar_title, r.serviceLabel))
+            .putExtra(android.provider.CalendarContract.Events.EVENT_LOCATION, "${getString(R.string.brand)}, ${getString(R.string.address)}")
+            .putExtra(android.provider.CalendarContract.Events.DESCRIPTION, getString(R.string.calendar_desc, r.name))
+    )
+}
+
+fun Context.copyAddress() {
+    val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+    clipboard.setPrimaryClip(
+        android.content.ClipData.newPlainText("Address", "${getString(R.string.brand)}, ${getString(R.string.address)}")
+    )
+}
