@@ -4,6 +4,27 @@ Free, open-source apps for [Mom’s Health Care](https://momshealthcare.site.je/
 and clinic in Thakurpukur, Kolkata. Same content and black-and-white design as the website, with
 appointment booking that reaches the clinic inbox (**drpubalisarkar@gmail.com**).
 
+## Screenshots
+
+Android:
+
+<p>
+<img src="docs/screenshots/android-home.png" width="200" alt="Home">
+<img src="docs/screenshots/android-appointments.png" width="200" alt="Appointments">
+<img src="docs/screenshots/android-pregnancy.png" width="200" alt="Pregnancy tracker">
+<img src="docs/screenshots/android-booking.png" width="200" alt="Booking">
+<img src="docs/screenshots/android-home-light.png" width="200" alt="Home, light appearance">
+</p>
+
+iPhone and iPad:
+
+<p>
+<img src="docs/screenshots/iphone-home.png" width="200" alt="iPhone home">
+<img src="docs/screenshots/iphone-pregnancy.png" width="200" alt="iPhone pregnancy">
+<img src="docs/screenshots/iphone-booking.png" width="200" alt="iPhone booking">
+<img src="docs/screenshots/ipad-home.png" width="400" alt="iPad home with sidebar">
+</p>
+
 ## What’s in the app
 
 - **Book a visit**: pick a service, a day and a time; the clinic calls back to confirm.
