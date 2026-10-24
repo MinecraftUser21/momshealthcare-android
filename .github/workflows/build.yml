@@ -33,5 +33,37 @@ jobs:
         run: |
           xcodebuild -version
           xcodebuild -project MomsHealthCare.xcodeproj -scheme MomsHealthCare \
-            -destination 'generic/platform=iOS Simulator' \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
             -configuration Debug CODE_SIGNING_ALLOWED=NO build
+      - name: Screenshots on iPhone and iPad simulators
+        working-directory: ios
+        run: |
+          APP=build/Build/Products/Debug-iphonesimulator/MomsHealthCare.app
+          BUNDLE=com.momshealthcare.app
+          mkdir -p shots
+          LIST=$(xcrun simctl list devices available -j)
+          IPHONE=$(echo "$LIST" | jq -r '[.devices[][] | select(.name | test("^iPhone [0-9]+( Pro)?$"))] | last | .udid')
+          IPAD=$(echo "$LIST" | jq -r '[.devices[][] | select(.name | startswith("iPad Pro"))] | last | .udid')
+          echo "iPhone: $IPHONE  iPad: $IPAD"
+          shoot() { # device-id name launch-args...
+            local id=$1 name=$2; shift 2
+            xcrun simctl launch --terminate-running-process "$id" "$BUNDLE" -demo YES "$@" > /dev/null
+            sleep 6
+            xcrun simctl io "$id" screenshot "shots/$name.png"
+          }
+          for id in "$IPHONE" "$IPAD"; do
+            xcrun simctl boot "$id"
+            xcrun simctl bootstatus "$id" -b > /dev/null
+            xcrun simctl status_bar "$id" override --time 9:41 --batteryLevel 100 --cellularBars 4 || true
+            xcrun simctl install "$id" "$APP"
+          done
+          for tab in home appointments pregnancy clinic; do shoot "$IPHONE" "iphone-$tab" -tab $tab; done
+          shoot "$IPHONE" iphone-booking -book YES
+          shoot "$IPHONE" iphone-home-light -appearance light
+          shoot "$IPAD" ipad-home -tab home
+          shoot "$IPAD" ipad-pregnancy -tab pregnancy
+          ls -la shots
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-screenshots
+          path: ios/shots
